@@ -15,41 +15,30 @@ BankAccount.prototype.withdraw = function (amount) { //we can't use arrow functi
 };
 
 function CurrentAccount(customerName, balance= 0){
-    this.customerName = customerName;
-    this.accountNumber = Date.now();
-    this.balance= balance;
+    BankAccount.call(this,customerName,balance)
     this.transactionLimit = 50000;
 }
+
+CurrentAccount.prototype = Object.create(BankAccount.prototype);
 
 CurrentAccount.prototype.takeBusinessLoan = function(amount){
     console.log('Taking business loan : '+amount);
 }
 
-CurrentAccount.prototype.deposit = function (amount) { //we can't use arrow function on prototype
-    this.balance +=amount;
-};
-CurrentAccount.prototype.withdraw = function (amount) { //we can't use arrow function on prototype
-    this.balance -=amount;
-};
-
 function SavingsAccount(customerName, balance= 0){
-    this.customerName = customerName;
-    this.accountNumber = Date.now();
-    this.balance= balance;
+    BankAccount.call(this,customerName,balance) // This is called "Constructor Linking", parent constructor linked to child constructor // BankAccount.call(this,...,...) this means SavingAccount
     this.transactionLimit = 50000;
 }
+
+
+SavingsAccount.prototype = Object.create(BankAccount.prototype)
 
 SavingsAccount.prototype.takePersonalLoan = function(amount){
     console.log('Taking personal loan : '+amount);
 }
 
-SavingsAccount.prototype.deposit = function (amount) { //we can't use arrow function on prototype
-    this.balance +=amount;
-};
-SavingsAccount.prototype.withdraw = function (amount) { //we can't use arrow function on prototype
-    this.balance -=amount;
-};
-
 const rajeshAccount = new SavingsAccount('Rajesh', 4500);
 
+rajeshAccount.deposit(500);
+rajeshAccount.withdraw(200);
 console.log(rajeshAccount);
