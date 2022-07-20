@@ -16,7 +16,7 @@ const taskTwo = () => {
 
 const taskThree = () => {
     return new Promise((resolve,reject) =>{
-        resolve('Task-3 is completed');
+        reject('Task-3 is completed');
     })
 }
 
@@ -35,6 +35,7 @@ taskOne()
 .then((res)=> console.log(res))
 .then(taskFour)
 .then((res)=> console.log(res))
+.catch((err)=> console.log(err))
 
 
 // taskOne()
