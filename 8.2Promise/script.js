@@ -3,7 +3,7 @@ console.log("welcome");
 //How to create a promise -(3 states of a promise) pending,resolve,reject
 
 const promise1 = new Promise((resolve,reject) =>{
-    let completedPromise = false;
+    let completedPromise = true;
 
     if(completedPromise){
         resolve(`Promise-1 Completed`);
@@ -23,7 +23,20 @@ promise1
         console.log(err);
         })
 
+const promise2 = new Promise((resolve,reject)=>{
+    let p2 = true;
 
+    if(p2){
+        resolve(`Promise-2 Completed`);
+    }else{
+        reject(`Promise-2 Not Complete`);
+    }
+})        
+
+//How to run multiple promise
+Promise.all([promise1,promise2]).then((res1,res2)=>{
+            console.log(res1,res2);
+        })
 
 // console.log(promise1);
 console.log("end");
