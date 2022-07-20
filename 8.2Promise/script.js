@@ -40,3 +40,10 @@ Promise.all([promise1,promise2]).then((res1,res2)=>{
 
 // console.log(promise1);
 console.log("end");
+
+
+
+// race function will show the out among the promises, which promise will be completed first
+// Promise.race([promise1,promise2]).then((res)=>{
+//     console.log(res);
+// })
