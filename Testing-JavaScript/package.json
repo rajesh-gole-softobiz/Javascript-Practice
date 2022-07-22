@@ -1,0 +1,14 @@
+{
+  "name": "testing-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "order-total.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "rajesh-gole",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}
